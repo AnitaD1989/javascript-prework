@@ -1,5 +1,5 @@
 function playGame(playerInput){
-  function clearMessages(){
+    clearMessages();
     
     let getMoveName = playerMove && computerMove (playerInput && randomNumber);
     
@@ -90,7 +90,7 @@ if(playerInput == '1'){
           ​
     
 }
-}
+
 
 
   
