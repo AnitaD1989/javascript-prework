@@ -1,0 +1,27 @@
+
+header {
+  text-align: center;
+}
+
+i {
+
+  color: orange;
+    font-size: 50px;
+}
+
+i:nth-child(3){
+  color:green;
+}
+​
+i:nth-child(4){
+  color:blue;
+}
+
+body {
+  margin-left: 50px;
+  padding-top:50px;
+}
+
+.zasady-gry {
+  padding-top: 50px;
+}
