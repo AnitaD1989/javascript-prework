@@ -1,95 +1,112 @@
-function playGame(playerInput){
-    clearMessages();
-    
-    let getMoveName = playerMove && computerMove (playerInput && randomNumber);
-    
-    if (randomNumber && playerInput == '1'){
-    getMoveName = 'kamien';
-    }
-        else if (randomNumber && playerInput == '2'){
-        getMoveName = 'papier';
-    }
-        else if (randomNumber && playerInput == '3'){
-        getMoveName = 'nozyce';
-    }
-        else {
-            getMoveName = 'nieznany ruch';
-        }
-    
-
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-    
-    console.log('Wylosowana liczba to: ' + randomNumber);
-    
-    let computerMove = getMoveName(randomNumber);
-/*
-if(randomNumber == 1){
-  computerMove = 'kamień';
-  
-}   
-    else if (randomNumber ==2) {
-      computerMove = 'papier';
-}   
-    else if (randomNumber ==3)  {
-          computerMove = 'nozyce';
-}
-*/
-/*
-    let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-
-    console.log('Gracz wpisał: ' + playerInput);
-
-    let playerMove = getMoveName(playerInput);
-/*;
-/*
-if(playerInput == '1'){
-  playerMove = 'kamień';
-}
-    else if (playerInput=='2'){
-        playerMove = 'papier';
+function playGame(playerInput) { 
+    function getMoveName(choiceNumber) {
+        if(choiceNumber == 1) return 'kamien';
+        if(choiceNumber == 2) return 'papier';
+        if(choiceNumber == 3) return 'nozyce';
     }
 
-    else if (playerInput=='3'){
-        playerMove = 'nozyce'
-    }
-
-    printMessage('Twój ruch to: ' + playerMove);   
-    */ 
-
-    displayResult (argComputerMove && argPlayerMove)
-    console.log('moves:', argComputerMove, argPlayerMove);
-
-        if( argComputerMove == 'kamien' && argPlayerMove == 'papier'){
+    function displayResult(argComputerMove, argPlayerMove) {
+        if ((argComputerMove == 'kamien' && argPlayerMove == 'papier') || 
+            (argComputerMove == 'papier' && argPlayerMove == 'nozyce') || 
+            (argComputerMove == 'nozyce' && argPlayerMove == 'kamien')) {
             printMessage('Ty wygrywasz!');
         }
-        else if(argComputerMove == 'papier' && argPlayerMove == 'kamien'){
-            printMessage('Przegrales!');
-        }  
-        else if(argComputerMove == 'nozyce' && argPlayerMove == 'kamien') {
-            printMessage('you win!');
-        }
-        else if (argComputerMove == 'kamien' && argPlayerMove== 'nozyce'){
-            printMessage('Przegrales!');
-        }
-        else if (argComputerMove == argPlayerMove){
+        else if (argComputerMove == argPlayerMove) {
             printMessage('Remis!');
         }
         else {
-         printMessage('nieznany ruch');
+            printMessage('Ty przegrałeś!');
         }
+    }
+   
+    // czyścimy stare komunikaty z HTML-a
+    clearMessages();
 
-        document.getElementById('play-rock').addEventListener('click', function(){
-            playGame(1);
-          });
-        ​document.getElementById('play-paper').addEventListener('click', function(){
-            playGame(2);
-          });
-        document.getElementById('play-scissors').addEventListener('click', function(){
-            playGame(3);
-          });
+    // losujemy wybór gracza (w formie liczbowej) np. 1, 2, 3
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+    // konwertujemy wybory gracza i komputera z liczb na zapis tekstowy, czyli np. 1 -> kamien
+    const playerMove = getMoveName(playerInput); 
+    const computerMove = getMoveName(randomNumber);
+
+    // sprawdż kto wygrał i zapisz tę informację w HTML-u
+    displayResult(playerMove, computerMove);
+}
+
+document.getElementById('play-rock').addEventListener('click', function () {
+    playGame(1);
+});
+
+document.getElementById('play-paper').addEventListener('click', function () {
+    playGame(2);
+});
+
+document.getElementById('play-scissors').addEventListener('click', function () {
+    playGame(3);
+});
+
+let playerScore = 0;
+let computerScore = 0;
+
+function playGame(playerInput) { 
+
+    function getMoveName(choiceNumber) {
+        if(choiceNumber == 1) return 'kamien';
+        if(choiceNumber == 2) return 'papier';
+        if(choiceNumber == 3) return 'nozyce';
+    }
+
+    function displayResult(argComputerMove, argPlayerMove) {
+        if ((argComputerMove == 'kamien' && argPlayerMove == 'papier') || 
+            (argComputerMove == 'papier' && argPlayerMove == 'nozyce') || 
+            (argComputerMove == 'nozyce' && argPlayerMove == 'kamien')) {
+            printMessage('Ty wygrywasz!');
+            playerScore++;
+        }
+        else if (argComputerMove == argPlayerMove) {
+            printMessage('Remis!');
+        }
+        else {
+            printMessage('Ty przegrałeś!');
+            computerScore++;
+        }
+        printMessage('Player ' + playerScore + ' : ' + computerScore + ' Computer');
+    }
+   
+    // czyścimy stare komunikaty z HTML-a
+    clearMessages();
+
+    // losujemy wybór gracza (w formie liczbowej) np. 1, 2, 3
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+    // konwertujemy wybory gracza i komputera z liczb na zapis tekstowy, czyli np. 1 -> kamien
+    const playerMove = getMoveName(playerInput); 
+    const computerMove = getMoveName(randomNumber);
+
+    // sprawdż kto wygrał i zapisz tę informację w HTML-u
+    displayResult(playerMove, computerMove);
+}
+
+document.getElementById('play-rock').addEventListener('click', function () {
+    playGame(1);
+});
+
+document.getElementById('play-paper').addEventListener('click', function () {
+    playGame(2);
+});
+
+document.getElementById('play-scissors').addEventListener('click', function () {
+    playGame(3);
+});
+
+
+
+
+
+
           ​
     
-}
+
 
 
 
