@@ -1,6 +1,6 @@
-{
+
 function playGame(playerInput) { 
-    function getMoveName(choiceNumber) {
+    const getMoveName = function(choiceNumber) {
         if(choiceNumber == 1) return 'kamien';
         if(choiceNumber == 2) return 'papier';
         if(choiceNumber == 3) return 'nozyce';
@@ -73,7 +73,6 @@ function playGame(playerInput) {
         }
         printMessage('Player ' + playerScore + ' : ' + computerScore + ' Computer');
     }
-
    
     // czyścimy stare komunikaty z HTML-a
     clearMessages();
@@ -100,17 +99,6 @@ document.getElementById('play-paper').addEventListener('click', function () {
 document.getElementById('play-scissors').addEventListener('click', function () {
     playGame(3);
 });
-}
 
 
-
-
-
-          ​
-    
-
-
-
-
-  
 
