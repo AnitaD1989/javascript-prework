@@ -1,4 +1,5 @@
 
+{
 function playGame (playerInput) { 
     const getMoveName= function (choiceNumber) {
         if(choiceNumber == 1) return 'kamien';
@@ -100,4 +101,4 @@ document.getElementById('play-scissors').addEventListener('click', function () {
 });
 
 
-
+}
