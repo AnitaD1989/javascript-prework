@@ -1,16 +1,18 @@
-
+{
 let playerScore = 0;
 let computerScore = 0;
 
-function playGame(playerInput) { 
 
-    function getMoveName(choiceNumber) {
+
+const playGame= function(playerInput) { 
+
+    const getMoveName= function(choiceNumber) {
         if(choiceNumber == 1) return 'kamien';
         if(choiceNumber == 2) return 'papier';
         if(choiceNumber == 3) return 'nozyce';
     }
 
-    function displayResult(argComputerMove, argPlayerMove) {
+    const displayResult= function (argComputerMove, argPlayerMove) {
         if ((argComputerMove == 'kamien' && argPlayerMove == 'papier') || 
             (argComputerMove == 'papier' && argPlayerMove == 'nozyce') || 
             (argComputerMove == 'nozyce' && argPlayerMove == 'kamien')) {
@@ -53,5 +55,6 @@ document.getElementById('play-scissors').addEventListener('click', function () {
     playGame(3);
 });
 
+}
 
 
